@@ -1,5 +1,6 @@
 import time
 import functools
+import os
 
 def timer_decorator(func):
     @functools.wraps(func)
@@ -39,11 +40,11 @@ def sum_from_file(input_path, output_path):
 
 
 if __name__ == "__main__":
-    with open("input.txt", "w") as f:
-        f.write("150 250")
+    with open(os.path.join("5", "input.txt"), "w") as f:
+        f.write("350 250")
 
     print("Запуск первой функции:")
     sum_and_print(10, 20)
 
     print("\nЗапуск второй функции:")
-    sum_from_file("input.txt", "output.txt")
+    sum_from_file(os.path.join("5", "input.txt"), os.path.join("5", "output.txt"))
